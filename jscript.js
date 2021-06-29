@@ -2,6 +2,38 @@
 
 // 1. susikurti klase Namas. 
 
+// apibrezti masyvai:
+
+let laiptines = [1,2,3,4];
+let laiptiniuSk = laiptines.length;
+let butuSk = [];
+
+// random funkcija:
+
+function randomizer(min, max) {
+    return Math.floor((Math.random() * (max-min + 1)) + min);
+}
+
+
+// butu skaicius laiptinese: 
+
+for (let i = 0; i < laiptiniuSk; i++) {
+    butuSk.push(randomizer(20,50));
+}
+
+// bendras butu skaicius name (kiek yra butu visose namo laiptinese kartu sudejus)
+
+let bendrasButuSk = 0;
+for (let i = 0; i < butuSk.length; i++) {
+    bendrasButuSk += butuSk[i];
+}
+
+console.log(laiptiniuSk);
+console.log(butuSk);
+console.log(bendrasButuSk);
+
+
+
 class Namas {
     constructor(miestas, pastatymoData, adresas, laiptiniuSk, butuSk) {
         this.miestas = miestas;
@@ -10,15 +42,17 @@ class Namas {
         this.laiptiniuSk = laiptiniuSk;
         this.butuSk = butuSk;
     }
-    static bendrasButuSk() {
-        return this.laiptiniuSk * this.butuSk; //perdaryti~, kol kas nesamone!
+    static bendrasButuSk(a,b) {
+        let suma = 0;
+        for (let i = 0; i < butuSk.length; i++) {
+            suma += butuSk[i];
+        } return suma;
     }
+    
 }
 
-let namas1 = new Namas("Vilnius", 2000, "Moletu plentas 1", [1,2,3,4], [20,22,19,13]);
 
-console.log(namas1);
-console.log(Namas.bendrasButuSk());
+
 
 
 // 2. susikurti klase Butas.
@@ -36,8 +70,9 @@ class Butas extends Namas {
     }
 }
 
-let butas1 = new Butas("Vilnius", 2000, "Moletu plentas 1", [1,2,3,4], [20,22,19,13], 7, 4, 5);
+let butas1 = new Butas("Vilnius", 2000, "Moletu plentas 1", laiptines, butuSk, 7, 4, 5);
 
+console.log(butas1);
 console.log(butas1.butoInfo());
 
 // Susikurti "Namas" objektų masyvą.
@@ -48,10 +83,13 @@ console.log(butas1.butoInfo());
 
 let namai = [];
 
-//namai.push(new )
+namai.push(new Namas("Vilnius", 2000, "Moletu g.1", laiptines, butuSk));
+namai.push(new Namas("Vilnius", 2000, "Moletu g.1", laiptines, butuSk));
+namai.push(new Namas("Vilnius", 2000, "Moletu g.1", laiptines, butuSk));
+namai.push(new Namas("Vilnius", 2000, "Moletu g.1", laiptines, butuSk));
+namai.push(new Namas("Vilnius", 2000, "Moletu g.1", laiptines, butuSk));
 
-// to be  continued..
-
+console.log(namai);
 
 
 
